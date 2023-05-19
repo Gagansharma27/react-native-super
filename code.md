@@ -273,4 +273,48 @@ const SuccessScreen = ({ navigation }) => {
 };
 
 export default SuccessScreen;
+        
+        
+<hr>
+##Appointment Booking
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button } from 'react-native';
 
+const AppointmentBookingScreen = ({ navigation }) => {
+  const [time, setTime] = useState('');
+  const [place, setPlace] = useState('');
+  const [patientName, setPatientName] = useState('');
+
+  const handleAppointmentSubmission = () => {
+    // Perform the appointment submission logic here
+    // You can use the values of time, place, and patientName to save or send the appointment details
+    // Display a success message or navigate to a confirmation screen
+  };
+
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Book an Appointment</Text>
+      <TextInput
+        style={{ height: 40, width: '80%', borderColor: 'gray', borderWidth: 1, marginVertical: 10, paddingHorizontal: 10 }}
+        placeholder="Time"
+        value={time}
+        onChangeText={text => setTime(text)}
+      />
+      <TextInput
+        style={{ height: 40, width: '80%', borderColor: 'gray', borderWidth: 1, marginVertical: 10, paddingHorizontal: 10 }}
+        placeholder="Place"
+        value={place}
+        onChangeText={text => setPlace(text)}
+      />
+      <TextInput
+        style={{ height: 40, width: '80%', borderColor: 'gray', borderWidth: 1, marginVertical: 10, paddingHorizontal: 10 }}
+        placeholder="Patient Name"
+        value={patientName}
+        onChangeText={text => setPatientName(text)}
+      />
+      <Button title="Submit" onPress={handleAppointmentSubmission} />
+    </View>
+  );
+};
+
+export default AppointmentBookingScreen;
