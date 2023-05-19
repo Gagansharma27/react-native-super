@@ -172,5 +172,50 @@ const DoctorsListScreen = ({ navigation }) => {
 };
 
 export default DoctorsListScreen;
+      
+<hr>
+##Claim Screen
+      
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button } from 'react-native';
+
+const ClaimScreen = () => {
+  const [billAmount, setBillAmount] = useState('');
+  const [billDescription, setBillDescription] = useState('');
+
+  const handleSubmit = () => {
+    // Perform the submission logic here
+    // You can send the billAmount and billDescription to a server or store them locally
+    // Display a success message or navigate to a confirmation screen
+  };
+
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 20 }}>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>Claim Your Health Bills</Text>
+      <TextInput
+        style={{ height: 40, width: '100%', borderColor: 'gray', borderWidth: 1, marginBottom: 20, paddingHorizontal: 10 }}
+        placeholder="Bill Amount"
+        keyboardType="numeric"
+        value={billAmount}
+        onChangeText={text => setBillAmount(text)}
+      />
+      <TextInput
+        style={{ height: 80, width: '100%', borderColor: 'gray', borderWidth: 1, marginBottom: 40, paddingHorizontal: 10 }}
+        placeholder="Bill Description"
+        multiline
+        numberOfLines={3}
+        value={billDescription}
+        onChangeText={text => setBillDescription(text)}
+      />
+      <Button
+        title="Submit Claim"
+        onPress={handleSubmit}
+      />
+    </View>
+  );
+};
+
+export default ClaimScreen;
+
 
 
