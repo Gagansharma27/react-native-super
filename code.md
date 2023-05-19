@@ -117,4 +117,60 @@ const AppointmentBookingScreen = ({ navigation }) => {
 };
 
 export default AppointmentBookingScreen;
+      
+<hr>
+## Doctor data
+      import React from 'react';
+import { View, Text, Button, FlatList } from 'react-native';
+
+const doctorsData = [
+  {
+    id: 1,
+    name: 'Dr. John Doe',
+    specialty: 'Cardiology',
+    experience: '10 years',
+  },
+  {
+    id: 2,
+    name: 'Dr. Jane Smith',
+    specialty: 'Dermatology',
+    experience: '8 years',
+  },
+  {
+    id: 3,
+    name: 'Dr. Michael Johnson',
+    specialty: 'Orthopedics',
+    experience: '12 years',
+  },
+];
+
+const DoctorsListScreen = ({ navigation }) => {
+  const renderDoctorItem = ({ item }) => {
+    return (
+      <View style={{ marginVertical: 10 }}>
+        <Text>Name: {item.name}</Text>
+        <Text>Specialty: {item.specialty}</Text>
+        <Text>Experience: {item.experience}</Text>
+        <Button
+          title="View Profile"
+          onPress={() => navigation.navigate('DoctorProfile', { doctor: item })}
+        />
+      </View>
+    );
+  };
+
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Doctors List</Text>
+      <FlatList
+        data={doctorsData}
+        renderItem={renderDoctorItem}
+        keyExtractor={(item) => item.id.toString()}
+      />
+    </View>
+  );
+};
+
+export default DoctorsListScreen;
+
 
