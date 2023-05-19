@@ -37,7 +37,10 @@ import { View, Text, Button } from 'react-native';
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Welcome to the Doctor Consulting App!</Text>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>Welcome to the Doctor Consulting App!</Text>
+      <Text style={{ fontSize: 16, textAlign: 'center', marginBottom: 40 }}>
+        Consult with experienced doctors online. Browse through a wide range of specialties and book appointments conveniently from your mobile device.
+      </Text>
       <Button
         title="Browse Doctors"
         onPress={() => navigation.navigate('DoctorsList')}
